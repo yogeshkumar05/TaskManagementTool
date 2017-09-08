@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
-import {createPage} from '../action-creators/agencyActions';
-import {connect} from 'react-redux';
+import {fetchStreamingData} from '../action-creators/agencyActions';
+import { connect } from "react-redux"
+import data from '../common/mockData.json';
+import DashboardEntry from './DashboardEntry';
 
 class About extends Component
 {
     constructor(props)
     {
+        //alert(data.projects.length)
         super(props);
         this.state={
 
@@ -13,18 +16,26 @@ class About extends Component
     }
     componentDidMount()
     {
-        createPage("Create a page");
+        fetchStreamingData();
     }
     componentWillReceiveProps(nextProps)
     {
-        alert(JSON.stringify(nextProps))
+        console.log(JSON.stringify(nextProps))
     }
     render()
     {
-        return (<h3>About Us</h3>)
+        let projects=data.projects;
+        let dashboardEntries=[];
+        projects.map((item, index)=>{
+            dashboardEntries.push(<DashboardEntry key={index} project={item}/>)
+        })
+        return (<div><h3>Dashboard</h3>
+        {dashboardEntries}</div>)
     }
 }
-export default connect((state)=>{
-   // alert("About"+state.agencyReducer.testinfo)
-   testData:state.agencyReducer.testinfo
-})(About);
+export default connect(state => (
+    {
+        tweets: state.agencyReducer.tweets,
+        count: state.agencyReducer.count
+    }
+))(About);

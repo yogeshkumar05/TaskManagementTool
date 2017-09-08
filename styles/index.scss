@@ -3,3 +3,24 @@
 a{
     margin: 5px;
 }
+.dashboard-entry{
+    width:25%;
+    height:10%;
+    display: inline-block;
+    border:1px solid #777;
+    padding:10px;
+    margin: 10px;
+}
+.question{
+    border: 1px solid #eee;
+    padding: 10px;
+    margin: 10px;
+}
+
+.question-actions
+{
+    border: none;
+    margin: 5px;
+    background: transparent;
+    color: blue;
+}

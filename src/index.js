@@ -8,7 +8,7 @@ import About from './components/About';
 import ContactUs from './components/ContactUs';
 import store from './store';
 import {Provider} from 'react-redux';
-
+import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
 ReactDOM.render(<Provider store={store}>
     <BrowserRouter>
