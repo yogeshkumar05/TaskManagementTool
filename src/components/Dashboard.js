@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 import data from '../common/mockData.json';
 import DashboardEntry from './DashboardEntry';
 
-class About extends Component
+class Dashboard extends Component
 {
     constructor(props)
     {
@@ -30,7 +30,9 @@ class About extends Component
             dashboardEntries.push(<DashboardEntry key={index} project={item}/>)
         })
         return (<div><h3>Dashboard</h3>
-        {dashboardEntries}</div>)
+        <div className="row">
+        {dashboardEntries}
+        </div></div>)
     }
 }
 export default connect(state => (
@@ -38,4 +40,4 @@ export default connect(state => (
         tweets: state.agencyReducer.tweets,
         count: state.agencyReducer.count
     }
-))(About);
+))(Dashboard);

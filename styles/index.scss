@@ -1,20 +1,24 @@
 @import 'agencyCreate';
+body{
+    background: #e9ebee
+}
 
 a{
     margin: 5px;
 }
 .dashboard-entry{
-    width:25%;
+    //width:20%;
     height:10%;
     display: inline-block;
     border:1px solid #777;
     padding:10px;
-    margin: 10px;
+    margin: 50px;
 }
 .question{
-    border: 1px solid #eee;
-    padding: 10px;
-    margin: 10px;
+    box-shadow: 1px 1px 5px #888888;
+    margin:25px;
+    padding:10px;
+    background: #fff;   
 }
 
 .question-actions
@@ -24,3 +28,68 @@ a{
     background: transparent;
     color: blue;
 }
+
+.login-modal
+{
+    .modal-dialog{
+        width: 285px;
+        position: absolute;
+
+    }
+}
+
+h4{
+    text-align: center;
+}
+
+.username
+{
+    margin-bottom: 30px;
+    margin-top: 15px;
+}
+
+.password
+{
+    margin-bottom: 15px;
+}
+.headFootColors
+{
+    background: #4267b2;
+    color: #fff;
+}
+.header
+{
+    @extend .headFootColors;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 75px;
+    text-align: center; 
+}
+
+.container
+{
+    margin-top:75px;
+}
+
+
+h2, h3{
+    text-align: center;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    background-color: #008CBA;
+    overflow: hidden;
+    width: 100%;
+    height:0;
+    transition: .5s ease;
+  }
+  
+  .container:hover .overlay {
+    bottom: 0;
+    height: 100%;
+  }

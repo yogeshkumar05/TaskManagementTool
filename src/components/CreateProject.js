@@ -1,6 +1,9 @@
 import React from 'react';
 import { DropdownButton, MenuItem, SplitButton, Modal, Button } from 'react-bootstrap';
-import Comment from './Comment';
+import Comment from './NewComment';
+import TextQuestion from './TextQuestion';
+import Footer from './Footer';
+
 export default class ContactUs extends React.Component
 {
     constructor(props)
@@ -8,7 +11,7 @@ export default class ContactUs extends React.Component
         super(props);
         this.state={
             showModal:false,
-            questions:[],
+            questionsRender:[],
             newQuestion:"",
             showNewComment:false
         }
@@ -26,21 +29,11 @@ export default class ContactUs extends React.Component
 
     addQuestion()
     {
-        //alert(this.state.newQuestion)
-        let newQn=<div className="question">
-            <div>{this.state.newQuestion}</div> 
-            <button className="question-actions" on Click={()=>{this.setState({showNewComment:true})}}>Reply</button>
-            <button className="question-actions">Edit</button>
-            <button className="question-actions">Delete</button>
-            <button className="question-actions">Accept</button>
-            {this.state.showNewComment==true?<Comment/>:null}</div>;
+        let newQn=<TextQuestion question={this.state.newQuestion}/>
             
-        let questions=this.state.questions;
-        questions.push(newQn);
-        this.setState({questions:questions, showModal: false});
-       // alert(this.state.questions.length)
-        
-
+        let questionsRender=this.state.questionsRender;
+        questionsRender.push(newQn);
+        this.setState({questionsRender:questionsRender, showModal: false});
     }
     modalBody()
         {
@@ -49,11 +42,11 @@ export default class ContactUs extends React.Component
         }
         render()
     {
-    return (<div>
+    return (<div className="container">
         <h2>Create Project</h2>
         <button onClick={()=>this.setState({newQuestion:"", showModal:true})}>Add</button>
-        <h3>Questions</h3>
-        {this.state.questions}
+        
+        {this.state.questionsRender}
 
         <Modal show={this.state.showModal} onHide={() => { this.setState({ showModal: false }) }}>
           <Modal.Header closeButton>
@@ -67,6 +60,6 @@ export default class ContactUs extends React.Component
             <Button onClick={() => { this.setState({ showModal: false }) }}>Cancel</Button>
           </Modal.Footer>
         </Modal>
-
+        <Footer/>
         </div>)}
 }

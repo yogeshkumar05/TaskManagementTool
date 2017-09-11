@@ -52,7 +52,7 @@ class DashboardEntry extends Component
         });
         status=(completed/total)*100;
         //alert(JSON.stringify(this.props.project));
-        return (<div className="dashboard-entry">
+        return (<div className="dashboard-entry col-sm-3 col-md-3 col-lg-3">
             <div>Total Questions:{total}</div>
             <div>In Progress Questions:{inProgress}</div>
             <div>Pending Questions:{pending}</div>
