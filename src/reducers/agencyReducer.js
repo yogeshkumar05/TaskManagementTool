@@ -1,3 +1,5 @@
+import data from '../common/mockData.json';
+
 export default function reducer(state = {
     tweets: [],
     projects:[],
@@ -5,10 +7,22 @@ export default function reducer(state = {
   }, action) {
   
     switch (action.type) {
+      case "LOAD_PROJECTS":
+      {
+        
+        return Object.assign({}, state, {projects:data.projects})
+      }
+
+      case "VIEW_PROJECT":
+      {
+        
+      }
         case "CREATE":
         {
-          //alert(JSON.stringify(action.payload))
-            return Object.assign({}, state, {projects:action.payload})
+          alert("reduce"+JSON.stringify(action.payload))
+          let projects=state.projects;
+          projects.push(action.payload);
+            return Object.assign({}, state, {projects})
         }
         case "UPDATE":
         {

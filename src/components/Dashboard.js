@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import {fetchStreamingData} from '../action-creators/agencyActions';
+import {loadProjectsDetails} from '../action-creators/agencyActions';
 import { connect } from "react-redux"
-import data from '../common/mockData.json';
 import DashboardEntry from './DashboardEntry';
-
+    
 class Dashboard extends Component
 {
     constructor(props)
@@ -16,7 +15,7 @@ class Dashboard extends Component
     }
     componentDidMount()
     {
-        fetchStreamingData();
+        loadProjectsDetails();
     }
     componentWillReceiveProps(nextProps)
     {
@@ -24,7 +23,7 @@ class Dashboard extends Component
     }
     render()
     {
-        let projects=data.projects;
+        let projects=this.props.projects;
         let dashboardEntries=[];
         projects.map((item, index)=>{
             dashboardEntries.push(<DashboardEntry key={index} project={item}/>)
@@ -37,7 +36,6 @@ class Dashboard extends Component
 }
 export default connect(state => (
     {
-        tweets: state.agencyReducer.tweets,
-        count: state.agencyReducer.count
+        projects: state.agencyReducer.projects
     }
 ))(Dashboard);

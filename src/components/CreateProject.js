@@ -9,6 +9,9 @@ export default class ContactUs extends React.Component
     constructor(props)
     {
         super(props);
+        
+        this.project={name:"",
+    questions:[]};
         this.state={
             showModal:false,
             questionsRender:[],
@@ -17,6 +20,21 @@ export default class ContactUs extends React.Component
         }
         this.newQuestionChangeHandler=this.newQuestionChangeHandler.bind(this);
         this.addQuestion=this.addQuestion.bind(this);
+    }
+
+    componentWillMount()
+    {
+        let arr=window.location.href.split("/");
+        let projId=arr[arr.length-1];
+       // alert(projId);
+        if(projId==="create")
+        {
+            this.pageTitle="Create Project";
+        }
+        else
+        {
+            this.pageTitle="View Project";
+        }
     }
 
     newQuestionChangeHandler(event)
@@ -29,6 +47,8 @@ export default class ContactUs extends React.Component
 
     addQuestion()
     {
+        this.project.name="Test Proj";
+        this.project.questions.push({name:this.state.newQuestion, status:"pending"});
         let newQn=<TextQuestion question={this.state.newQuestion}/>
             
         let questionsRender=this.state.questionsRender;
@@ -43,7 +63,7 @@ export default class ContactUs extends React.Component
         render()
     {
     return (<div className="container">
-        <h2>Create Project</h2>
+        <h2>{this.pageTitle}</h2>
         <button onClick={()=>this.setState({newQuestion:"", showModal:true})}>Add</button>
         
         {this.state.questionsRender}
@@ -60,6 +80,6 @@ export default class ContactUs extends React.Component
             <Button onClick={() => { this.setState({ showModal: false }) }}>Cancel</Button>
           </Modal.Footer>
         </Modal>
-        <Footer/>
+        <Footer project={this.project}/>
         </div>)}
 }

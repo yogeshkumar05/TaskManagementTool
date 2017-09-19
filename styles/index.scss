@@ -3,9 +3,6 @@ body{
     background: #e9ebee
 }
 
-a{
-    margin: 5px;
-}
 .dashboard-entry{
     //width:20%;
     height:10%;
@@ -27,6 +24,10 @@ a{
     margin: 5px;
     background: transparent;
     color: blue;
+}
+h1{
+    float:left;
+    color:#CCA;
 }
 
 .login-modal
@@ -65,11 +66,18 @@ h4{
     width: 100%;
     height: 75px;
     text-align: center; 
+    z-index: 1;
+    img{
+        width: 95px;
+        height: 74px;
+        float: left;
+    }
 }
 
 .container
 {
     margin-top:75px;
+    z-index: 0;
 }
 
 
@@ -92,4 +100,27 @@ h2, h3{
   .container:hover .overlay {
     bottom: 0;
     height: 100%;
+  }
+
+  .nav-bar
+  {
+    position: fixed;
+    top: 7px;
+    right: 7px;
+    z-index: 1;
+    a{
+        color: #fff;
+        position: relative;
+        top: 25px;
+        right: 60px;
+        margin: 10px;
+    }
+    img{
+        width: 60px;
+        height: 60px;
+    }
+    span
+    {
+        margin: 20px;
+    }
   }

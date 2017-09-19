@@ -15,7 +15,8 @@ export default class Footer extends Component
     }
     saveProject()
     {
-        createProject();
+       // alert(JSON.stringify(this.props.project));
+        createProject(this.props.project);
     }
 
     resetForm()
@@ -25,8 +26,8 @@ export default class Footer extends Component
     render()
     {
         return(<div className="container">
-            <button onCLick={this.saveProject}>Save</button>
-            <button onCLick={this.resetForm}>Cancel</button>
+            <button onClick={this.saveProject}>Save</button>
+            <button onClick={this.resetForm}>Cancel</button>
             </div>)
     }
 }

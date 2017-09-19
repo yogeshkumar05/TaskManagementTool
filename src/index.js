@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import '../styles/index.scss';
 import {BrowserRouter, Route} from 'react-router-dom';
 import Nav from './components/Nav';
 import Home from './components/Home';
@@ -11,7 +10,8 @@ import {Provider} from 'react-redux';
 import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import LandingPage from './components/LandingPage';
 import AgencyMain from './components/AgencyMain';
-import { connect } from "react-redux"
+import { connect } from "react-redux";
+import '../styles/index.scss';
 class InitialRender extends React.Component
 {
     constructor(props)
@@ -71,6 +71,7 @@ ReactDOM.render(<Provider store={store}>
             <Route exact path="/" component={Home}/>
             <Route path="/dashboard" component={Dashboard}/>
             <Route path="/create" component={CreateProject}/>
+            <Route path="/view/:id" component={CreateProject}/>
             
         </div>
     </BrowserRouter>

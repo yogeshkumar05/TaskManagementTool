@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {createPage} from '../action-creators/agencyActions';
 import {connect} from 'react-redux';
 import data from '../common/mockData.json';
+import {Link} from 'react-router-dom';
 
 class DashboardEntry extends Component
 {
@@ -52,13 +53,13 @@ class DashboardEntry extends Component
         });
         status=(completed/total)*100;
         //alert(JSON.stringify(this.props.project));
-        return (<div className="dashboard-entry col-sm-3 col-md-3 col-lg-3">
+        return (<Link to="/view/2"><div className="dashboard-entry col-sm-2 col-md-2 col-lg-2">
             <div>Total Questions:{total}</div>
-            <div>In Progress Questions:{inProgress}</div>
+            <div>In Progress Questions:{inProgress}</div> 
             <div>Pending Questions:{pending}</div>
             <div>completed Question:{completed}</div>
             <div>Status:{status}%</div>
-        </div>)
+        </div></Link>)
     }
 }
 export default connect((state)=>{
