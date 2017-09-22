@@ -19,7 +19,6 @@ export default class NewComment extends React.Component
     {
         this.props.submitComment(this.state.comment);
     }
-    // alert("comment")
     render()
     {
     return (<div><input type="textarea" value={this.state.comment} onChange={this.commentHandler}/>

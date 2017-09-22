@@ -26,7 +26,6 @@ export default class ContactUs extends React.Component
     {
         let arr=window.location.href.split("/");
         let projId=arr[arr.length-1];
-       // alert(projId);
         if(projId==="create")
         {
             this.pageTitle="Create Project";
@@ -39,7 +38,6 @@ export default class ContactUs extends React.Component
 
     newQuestionChangeHandler(event)
     {
-       // alert(event.target.value)
         this.setState({newQuestion:event.target.value});
         
     }
@@ -62,8 +60,8 @@ export default class ContactUs extends React.Component
         }
         render()
     {
-    return (<div className="container">
-        <h2>{this.pageTitle}</h2>
+    return (<div id="container">
+        <h3>{this.pageTitle}</h3>
         <button onClick={()=>this.setState({newQuestion:"", showModal:true})}>Add</button>
         
         {this.state.questionsRender}

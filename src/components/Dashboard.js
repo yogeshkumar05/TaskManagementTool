@@ -7,7 +7,6 @@ class Dashboard extends Component
 {
     constructor(props)
     {
-        //alert(data.projects.length)
         super(props);
         this.state={
 

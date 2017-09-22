@@ -19,7 +19,6 @@ export default function reducer(state = {
       }
         case "CREATE":
         {
-          alert("reduce"+JSON.stringify(action.payload))
           let projects=state.projects;
           projects.push(action.payload);
             return Object.assign({}, state, {projects})
@@ -35,7 +34,6 @@ export default function reducer(state = {
         return Object.assign({}, state, { tweets: action.payload, count: action.payload.count });
       }
       case "UPDATE_LOGIN":{
-        // alert("reducer"+action.payload)
         return Object.assign({}, state, { login: action.payload});
       }
     }

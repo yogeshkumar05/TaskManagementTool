@@ -12,7 +12,6 @@ class LandingPage extends Component{
     }
     componentWillReceiveProps(nextProps)
     {
-       // alert("received in landing page"+nextProps.login)
         if(nextProps.login!=undefined)
             {
                 this.props.updateLoginStatus(nextProps.login)
@@ -35,7 +34,6 @@ class LandingPage extends Component{
     }
 }
 export default connect(state => (
-   // alert("state"+JSON.stringify(state.agencyReducer))
     {
         
         login: state.agencyReducer.login,

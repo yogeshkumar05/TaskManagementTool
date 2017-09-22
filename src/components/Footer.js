@@ -15,7 +15,6 @@ export default class Footer extends Component
     }
     saveProject()
     {
-       // alert(JSON.stringify(this.props.project));
         createProject(this.props.project);
     }
 

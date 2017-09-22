@@ -8,7 +8,6 @@ class DashboardEntry extends Component
 {
     constructor(props)
     {
-        //alert(data.projects.length)
         super(props);
         this.state={
 
@@ -20,7 +19,6 @@ class DashboardEntry extends Component
     }
     componentWillReceiveProps(nextProps)
     {
-        //alert(JSON.stringify(nextProps))
     }
     render()
     {
@@ -52,7 +50,6 @@ class DashboardEntry extends Component
 
         });
         status=(completed/total)*100;
-        //alert(JSON.stringify(this.props.project));
         return (<Link to="/view/2"><div className="dashboard-entry col-sm-2 col-md-2 col-lg-2">
             <div>Total Questions:{total}</div>
             <div>In Progress Questions:{inProgress}</div> 
@@ -63,6 +60,5 @@ class DashboardEntry extends Component
     }
 }
 export default connect((state)=>{
-   // alert("About"+state.agencyReducer.testinfo)
    testData:state.agencyReducer.testinfo
 })(DashboardEntry);

@@ -24,13 +24,9 @@ class InitialRender extends React.Component
         this.updateLoginStatus=this.updateLoginStatus.bind(this);
     }
 
-    // componentWillReceiveProps(nextProps)
-    // {
-    //     alert("received"+JSON.stringify(nextProps.login));
-    // }
+
     updateLoginStatus(data)
     {
-        // alert("updating"+data)
         this.setState({loginStatus:data})
     }
     render()
@@ -54,7 +50,6 @@ else  if(this.state.loginStatus=="client")
     }
 }
 export default connect(state => (
-   // alert("state"+JSON.stringify(state.agencyReducer))
     {
         
         //login: state.agencyReducer.login,
